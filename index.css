@@ -1,0 +1,877 @@
+/* ============================================================
+   PORTAFOLIO MULTIMEDIA — ESTILO EDITORIAL MODERNO
+   Paleta Oficial de Marca:
+   · Rich Black (#060A0F) - Fondo principal profundo
+   · Oxford Blue (#072968) - Tarjetas, contenedores y capas
+   · Azure Blue (#017EFE) - Acento primario e interacciones
+   · Bright Cyan (#00CAFA) - Brillo neón, estado activo y destacados
+   · White Smoke (#F7F7F7) - Tipografía principal y alto contraste
+   ============================================================ */
+
+/* ---------- FUENTES LOCALES ---------- */
+
+/* Plus Jakarta Sans */
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url('fonts/PLUS JAKARTA/PlusJakartaSans-ExtraLight.otf') format('opentype');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url('fonts/PLUS JAKARTA/PlusJakartaSans-Light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url('fonts/PLUS JAKARTA/PlusJakartaSans-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url('fonts/PLUS JAKARTA/PlusJakartaSans-SemiBold.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url('fonts/PLUS JAKARTA/PlusJakartaSans-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url('fonts/PLUS JAKARTA/PlusJakartaSans-ExtraBold.otf') format('opentype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Oxanium */
+
+@font-face {
+    font-family: 'Oxanium';
+    src: url('fonts/OXANIUM/Oxanium-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Oxanium';
+    src: url('fonts/OXANIUM/Oxanium-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Oxanium';
+    src: url('fonts/OXANIUM/Oxanium-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Oxanium';
+    src: url('fonts/OXANIUM/Oxanium-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Oxanium';
+    src: url('fonts/OXANIUM/Oxanium-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Oxanium';
+    src: url('fonts/OXANIUM/Oxanium-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* ---------- VARIABLES ---------- */
+:root {
+    /* Paleta Oficial */
+    --rich-black: #060A0F;
+    --oxford-blue: #072968;
+    --azure-blue: #017EFE;
+    --bright-cyan: #00CAFA;
+    --white-smoke: #F7F7F7;
+
+    /* Tokens Semánticos de Fondo */
+    --bg: #060A0F;
+    --bg-alt: #091733;
+    --bg-card: #0b1f48;
+    --bg-card-2: #072968;
+
+    /* Acentos e Interacción */
+    --deep: #017EFE;
+    --mid: #00a4fb;
+    --light: #00CAFA;
+
+    --accent-soft: rgba(0, 202, 250, 0.10);
+    --accent-glow: rgba(1, 126, 254, 0.28);
+
+    /* Tipografía y Textos */
+    --text: #F7F7F7;
+    --text-muted: #f7f7f7;
+
+    /* Bordes y Sombras */
+    --border: rgba(0, 202, 250, 0.20);
+    --border-strong: rgba(1, 126, 254, 0.45);
+
+    --radius: 12px;
+    --radius-lg: 20px;
+    --radius-xl: 26px;
+
+    --shadow: 0 8px 40px rgba(6, 10, 15, 0.85);
+    --shadow-cyan: 0 4px 32px rgba(0, 202, 250, 0.25);
+    --shadow-azure: 0 4px 32px rgba(1, 126, 254, 0.30);
+
+    --transition: 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+
+    --font-display: 'Oxanium', sans-serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+
+    /* Layout */
+    --col-left-w: 240px;
+    --col-right-w: 230px;
+}
+
+/* ---------- RESET ---------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+    /* Gradientes atmosféricos con Oxford Blue, Azure Blue y Bright Cyan */
+    background-image:
+        radial-gradient(ellipse 80% 55% at 15% 0%, rgba(7, 41, 104, 0.50) 0%, transparent 65%),
+        radial-gradient(ellipse 55% 35% at 85% 100%, rgba(0, 202, 250, 0.12) 0%, transparent 55%),
+        radial-gradient(ellipse 40% 40% at 50% 50%, rgba(1, 126, 254, 0.06) 0%, transparent 70%);
+}
+
+/* ---------- SCROLLBAR ---------- */
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--deep), var(--light));
+    border-radius: 4px;
+}
+
+/* ============================================================
+   THREE-COLUMN LAYOUT
+   ============================================================ */
+.three-col-layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    /* 🔥 equilibrio visual */
+    grid-template-areas: "left center right";
+    min-height: 100vh;
+    max-width: 100%;
+    margin: 0;
+}
+
+/* ============================================================
+   SHARED COLUMN
+   ============================================================ */
+.col-left,
+.col-right {
+    padding: 3rem 0;
+}
+
+.col-sticky {
+    position: sticky;
+    top: 2.5rem;
+}
+
+.col-heading {
+    margin-bottom: 2rem;
+    padding-bottom: 0.9rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.col-label {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    /* 🔥 más visible */
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--light);
+    opacity: 0.85;
+}
+
+/* ============================================================
+   COLUMNA IZQUIERDA — ÍNDICE
+   ============================================================ */
+.col-left {
+    grid-area: left;
+    padding-right: 1.8rem;
+    padding-left: 1.8rem;
+    border-right: 1px solid var(--border);
+    background: linear-gradient(180deg, rgba(7, 41, 104, 0.25) 0%, transparent 80%);
+}
+
+.index-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.index-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1.05rem;
+    /* 🔥 más grande */
+    padding: 0.85rem 1rem;
+    /* ↑ larger for hierarchy */
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: var(--text-muted);
+    text-decoration: none;
+    padding: 0.72rem 0.9rem;
+    border-radius: var(--radius);
+    border: 1px solid transparent;
+    position: relative;
+    transition: background var(--transition), color var(--transition), transform var(--transition), border-color var(--transition);
+}
+
+.index-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 0;
+    background: linear-gradient(180deg, var(--light), var(--deep));
+    border-radius: 3px;
+    transition: height var(--transition);
+}
+
+.index-item:hover {
+    color: var(--light);
+    background: var(--accent-soft);
+    border-color: var(--border);
+    transform: translateX(3px);
+}
+
+.index-item.active {
+    color: var(--light);
+    background: rgba(255, 255, 255, 0.18);
+    border-color: var(--border-strong);
+}
+
+.index-item.active::before {
+    height: 65%;
+}
+
+.index-num {
+    font-family: 'Oxanium', sans-serif; /* O también puedes usar var(--font-display) */
+    font-size: 0.95rem;
+    letter-spacing: 0.10em;
+    color: var(--light);
+    opacity: 0.55;
+    flex-shrink: 0;
+    min-width: 2ch;
+    font-weight: 700; /* Puedes cambiar este número para el grosor (200, 300, 400, 600, 700, 800) */
+}
+
+.index-item.active .index-num {
+    opacity: 1;
+
+}
+
+/* ============================================================
+   COLUMNA CENTRAL
+   ============================================================ */
+.col-center {
+    grid-area: center;
+    padding: 0 3rem;
+    min-width: 0;
+}
+
+/* ============================================================
+   COLUMNA DERECHA — FASES
+   ============================================================ */
+.col-right {
+    grid-area: right;
+    padding-left: 1.8rem;
+    padding-right: 1.8rem;
+    border-left: 1px solid var(--border);
+    background: linear-gradient(180deg, rgba(57, 187, 237, 0.06) 0%, transparent 80%);
+}
+
+.phases-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.phase-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.05rem;
+    padding: 0.8rem 1rem;
+    /* ↑ larger for readability */
+    font-weight: 400;
+    letter-spacing: 0.025em;
+    color: var(--text-muted);
+    text-decoration: none;
+    padding: 0.68rem 0.9rem;
+    border-radius: var(--radius);
+    border: 1px solid transparent;
+    transition: background var(--transition),
+        color var(--transition),
+        transform var(--transition),
+        border-color var(--transition);
+}
+
+.phase-item:hover {
+    color: var(--light);
+    background: var(--accent-soft);
+    border-color: var(--border);
+    transform: translateX(-3px);
+}
+
+.phase-item.active {
+    color: var(--light);
+    background: rgba(19, 65, 162, 0.18);
+    border-color: var(--border-strong);
+}
+
+.phase-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: transparent;
+    border: 1.5px solid var(--border-strong);
+    flex-shrink: 0;
+    transition: background var(--transition), box-shadow var(--transition);
+}
+
+.phase-item:hover .phase-dot,
+.phase-item.active .phase-dot {
+    background: var(--light);
+    border-color: var(--light);
+    box-shadow: 0 0 8px rgba(57, 187, 237, 0.55);
+}
+
+.video-wrapper {
+    width: 100%;
+    /* ← CORREGIDO */
+    max-width: 900px;
+    margin: 0 auto;
+    aspect-ratio: 16 / 9;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.video-wrapper video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* ← CAMBIO CLAVE */
+    border-radius: 16px;
+    background: black;
+    /* opcional, para que no se vean espacios raros */
+}
+
+/* ============================================================
+   DOC SECTION
+   ============================================================ */
+.doc-section {
+    padding: 4.5rem 0;
+    border-bottom: 1px solid var(--border);
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.75s ease, transform 0.75s ease;
+
+}
+
+
+.doc-section:last-of-type {
+    border-bottom: none;
+}
+
+.doc-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Section header */
+.section-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    margin-bottom: 2.8rem;
+}
+
+.section-number {
+    font-family: var(--font-display);
+    font-size: 3.8rem;
+    font-weight: 300;
+    background: linear-gradient(135deg, var(--deep) 20%, var(--light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    opacity: 0.7;
+    line-height: 1;
+    min-width: 3ch;
+}
+
+.section-title-wrap {
+    position: relative;
+}
+
+/* Decorative accent line under title */
+.section-title-wrap::after {
+    content: '';
+    display: block;
+    width: 44px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--deep), var(--light));
+    border-radius: 2px;
+    margin-top: 0.55rem;
+}
+
+.section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 0.35rem;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+}
+
+.section-desc {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    max-width: 500px;
+}
+
+/* ---- DOC CARD ---- */
+.doc-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow), var(--shadow-blue);
+    transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+
+.doc-card:hover {
+    border-color: var(--border-strong);
+    box-shadow:
+        0 16px 64px rgba(0, 0, 0, 0.65),
+        0 0 0 1px rgba(57, 187, 237, 0.12),
+        var(--shadow-blue);
+    transform: translateY(-3px);
+}
+
+.doc-card-label {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem 1.6rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    background: #358ee0;
+    border-bottom: 1px solid var(--border);
+    font-weight: 400;
+}
+
+.doc-icon {
+    font-size: 1rem;
+}
+
+.pdf-wrapper {
+margin-top: 8px;
+border-radius: 12px;
+overflow: hidden;
+width: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+background: #111;
+padding: 12px;
+}
+
+.pdf-wrapper img {
+width: 100%;
+max-width: 1000px;
+height: auto;
+object-fit: contain;
+border-radius: 10px;
+display: block;
+}
+
+/* Coming soon */
+.coming-soon-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 4.5rem;
+    background: var(--bg-card);
+    border: 1px dashed var(--border-strong);
+    border-radius: var(--radius-xl);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.coming-soon-icon {
+    font-size: 2.2rem;
+    color: var(--light);
+    opacity: 0.4;
+    animation: pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.75;
+        transform: scale(1.1);
+    }
+}
+
+/* ============================================================
+   AUDIO / IDEA SECTION
+   ============================================================ */
+.audio-bg {
+    position: relative;
+    width: 100%;
+    height: 420px;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow), var(--shadow-blue);
+}
+
+.bg-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.audio-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg,
+            #431238 0%,
+            rgba(0, 5, 20, 0.72) 100%);
+}
+
+.audio-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    gap: 24px;
+    padding: 24px;
+}
+
+.audio-title {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+}
+
+audio {
+    width: 300px;
+    border-radius: 30px;
+    accent-color: var(--light);
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+    padding: 2.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.3);
+    border-top: 1px solid var(--border);
+    margin-top: 2rem;
+}
+
+.footer-brand {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-style: italic;
+    font-weight: 700;
+    background: linear-gradient(90deg, var(--mid), var(--light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.01em;
+}
+
+.footer-heart {
+    color: var(--light);
+}
+
+/* ============================================================
+   RESPONSIVE — max 1100px
+   ============================================================ */
+@media (max-width: 1100px) {
+    :root {
+        --col-left-w: 200px;
+        --col-right-w: 190px;
+    }
+
+    .col-center {
+        padding: 0 2rem;
+    }
+}
+
+/* ============================================================
+   RESPONSIVE — max 900px (tablet 2-col)
+   ============================================================ */
+@media (max-width: 900px) {
+    .three-col-layout {
+        grid-template-columns: 1fr 200px;
+        grid-template-areas:
+            "left left"
+            "center right";
+        max-width: 100%;
+    }
+
+    .col-left {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        padding: 1.4rem 1.6rem;
+    }
+
+    .col-sticky {
+        position: static;
+    }
+
+    .col-left .col-heading {
+        display: inline-block;
+        margin-bottom: 0.9rem;
+    }
+
+    .index-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+    }
+
+    .index-item {
+        font-size: 0.82rem;
+        padding: 0.4rem 0.9rem;
+        border: 1px solid var(--border);
+        border-radius: 50px;
+        background: rgba(19, 65, 162, 0.07);
+        transform: none !important;
+    }
+
+    .index-item::before {
+        display: none;
+    }
+
+    .index-item.active {
+        border-color: var(--border-strong);
+        background: rgba(19, 65, 162, 0.20);
+    }
+
+    .col-center {
+        padding: 0 1.6rem;
+    }
+
+    .col-right {
+        border-left: 1px solid var(--border);
+        padding-left: 1.2rem;
+        padding-right: 1.2rem;
+    }
+
+    .col-right .col-sticky {
+        position: sticky;
+        top: 1rem;
+    }
+
+    .pdf-wrapper iframe {
+        height: 500px;
+    }
+
+    .section-number {
+        font-size: 2.6rem;
+    }
+}
+
+/* ============================================================
+   RESPONSIVE — max 640px (mobile 1-col)
+   ============================================================ */
+@media (max-width: 640px) {
+    .three-col-layout {
+        grid-template-columns: 1fr;
+        grid-template-areas: "left" "center" "right";
+    }
+
+    .col-left {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        padding: 1.2rem 1.4rem;
+        grid-area: left;
+    }
+
+    .col-left .col-sticky {
+        position: static;
+    }
+
+    .index-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.35rem;
+    }
+
+    .index-item {
+        font-size: 0.78rem;
+        padding: 0.35rem 0.75rem;
+        border: 1px solid var(--border);
+        border-radius: 50px;
+        background: rgba(19, 65, 162, 0.07);
+        gap: 0.35rem;
+        transform: none !important;
+    }
+
+    .index-item::before {
+        display: none;
+    }
+
+    .index-num {
+        font-size: 0.68rem;
+    }
+
+    .col-center {
+        padding: 0 1.2rem;
+        grid-area: center;
+    }
+
+    .col-right {
+        border-left: none;
+        border-top: 1px solid var(--border);
+        padding: 1.2rem 1.4rem;
+        grid-area: right;
+    }
+
+    .col-right .col-sticky {
+        position: static;
+    }
+
+    .phases-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.35rem;
+    }
+
+    .phase-item {
+        font-size: 0.78rem;
+        padding: 0.35rem 0.8rem;
+        border: 1px solid var(--border);
+        border-radius: 50px;
+        background: rgba(57, 187, 237, 0.05);
+        transform: none !important;
+    }
+
+    .phase-dot {
+        display: none;
+    }
+
+    .doc-section {
+        padding: 3rem 0;
+    }
+
+    .section-header {
+        gap: 1rem;
+    }
+
+    .section-number {
+        font-size: 2.2rem;
+    }
+
+    .pdf-wrapper iframe {
+        height: 400px;
+    }
+
+    .audio-bg {
+        height: 340px;
+    }
+
+    .footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.4rem;
+        padding: 1.5rem 0;
+    }
+}
