@@ -1,298 +1,112 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Creación Portfolio JS · Portafolio Multimedia</title>
+    <meta
+      name="description"
+      content="Portafolio multimedia de Sebastian Cortes: investigación, brief, idea, concepto gráfico, manual de marca, sketch, wireframes, mockup y prototipos."
+    />
+    <meta name="author" content="Sebastian Cortes" />
+    <meta property="og:title" content="Creación Portfolio JS · Portafolio Multimedia" />
+    <meta
+      property="og:description"
+      content="Proceso creativo en nueve fases con estética gaming HUD. Producción Multimedia · Colombia."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&family=Plus+Jakarta+Sans:wght@200..800&display=swap"
+    />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <!-- Cursor gaming -->
+    <div id="cursor" class="cursor" aria-hidden="true">
+      <span class="cursor-ring"></span>
+      <span class="cursor-dot"></span>
+    </div>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CREACIÓN PORTFOLIO JS</title>
-    <link rel="shortcut icon" href="img/logovariaciones/LOG25.png" type="image/x-icon">
-    <link rel="stylesheet" href="index.css">
-</head>
+    <!-- Panel de accesibilidad (WCAG 2.1) -->
+    <div class="a11y">
+      <button
+        id="a11y-toggle"
+        class="a11y-btn hud-panel chamfer-sm neon-glow"
+        aria-expanded="false"
+        aria-controls="a11y-panel"
+        aria-label="Abrir opciones de accesibilidad"
+      >
+        <span aria-hidden="true">♿</span>
+      </button>
+      <div id="a11y-panel" class="a11y-panel hud-panel chamfer scanlines" hidden>
+        <h2 class="hud-title">Accesibilidad</h2>
+        <label class="a11y-row">
+          <input type="checkbox" id="opt-reduceMotion" />
+          <span>Reducir movimiento</span>
+        </label>
+        <label class="a11y-row">
+          <input type="checkbox" id="opt-highContrast" />
+          <span>Alto contraste</span>
+        </label>
+        <label class="a11y-row">
+          <input type="checkbox" id="opt-customCursor" checked />
+          <span>Cursor personalizado</span>
+        </label>
+        <p class="a11y-hint">Las preferencias se guardan en este navegador.</p>
+      </div>
+    </div>
 
-<body>
+    <a href="#contenido" class="skip-link chamfer-sm">Saltar al contenido</a>
 
-    <!-- THREE-COLUMN LAYOUT -->
-    <div class="three-col-layout">
+    <!-- HERO scroll-driven con ELEVEN-BITE -->
+    <div class="hero" id="hero">
+      <div class="hero-sticky">
+        <div class="scanlines hero-scan" aria-hidden="true"></div>
+        <p class="hero-kicker">Producción Multimedia · 2026</p>
+        <h1 class="hero-title" id="hero-title" aria-label="Portafolio — Creación Portfolio JS"></h1>
+        <p class="hero-copy">
+          Documentación del proceso creativo en nueve fases: investigación, brief, idea, concepto
+          gráfico, manual de marca, sketch, wireframes, mockup y prototipos.
+        </p>
+        <img
+          id="bot"
+          class="hero-bot animate-float-bot"
+          src="img/eleven-bite.png"
+          width="788"
+          height="951"
+          alt="ELEVEN-BITE, personaje guía del portafolio"
+        />
+        <a href="#investigacion" class="hud-item chamfer-sm cta">Iniciar recorrido</a>
+      </div>
+    </div>
 
-        <!-- COLUMNA IZQUIERDA: Índice -->
-        <aside class="col-left">
-            <div class="col-sticky">
-                <div class="col-heading">
-                    <span class="col-label">Índice</span>
-                </div>
-                <nav class="index-list">
-                    <a href="#investigacion" class="index-item active" data-section="investigacion">
-                        <span class="index-num">01</span>
-                        Investigación
-                    </a>
-                    <a href="#brief" class="index-item" data-section="brief">
-                        <span class="index-num">02</span>
-                        Brief
-                    </a>
-                    <a href="#idea" class="index-item" data-section="idea">
-                        <span class="index-num">03</span>
-                        Idea
-                    </a>
-                    <a href="#concepto_grafico" class="index-item" data-section="concepto_grafico">
-                        <span class="index-num">04</span>
-                        Concepto gráfico
-                    </a>
-                    <a href="#scketch" class="index-item" data-section="scketch">
-                        <span class="index-num">05</span>
-                        Sketch
-                    </a>
-                    <a href="#wireframes" class="index-item" data-section="wireframes">
-                        <span class="index-num">06</span>
-                        Wireframes
-                    </a>
-                    <a href="#mockup" class="index-item" data-section="mockup">
-                        <span class="index-num">07</span>
-                        Mockup
-                    </a>
-                    <a href="#prototipos" class="index-item" data-section="prototipos">
-                        <span class="index-num">08</span>
-                        Prototipos
-                    </a>
-                </nav>
-            </div>
-        </aside>
+    <div class="layout">
+      <!-- HUD Índice -->
+      <aside class="hud-col">
+        <div class="hud-panel chamfer scanlines hud-box">
+          <div class="hud-scan"></div>
+          <div class="hud-head"><span class="dot dot-accent"></span><h2 class="hud-title">Índice</h2></div>
+          <nav id="hud-index" aria-label="Índice de secciones" class="hud-list"></nav>
+        </div>
+      </aside>
 
-        <!-- COLUMNA CENTRAL: Contenido principal -->
-        <main class="col-center">
+      <main id="contenido" class="main"></main>
 
-            <!-- 01 INVESTIGACIÓN -->
-            <section class="doc-section" id="investigacion">
-                <div class="section-header">
-                    <span class="section-number">01</span>
-                    <div class="section-title-wrap">
-                        <h2 class="section-title">Investigación</h2>
-                    </div>
-                </div>
-                <div class="doc-card">
-                    <div class="doc-card-label">
-                        <span class="doc-icon">📄</span>
-                        <span>Los 10 mejores portafolios web</span>
-                    </div>
-                    <div class="pdf-wrapper">
-                        <iframe src="pdfs/Investigación/Investigación.pdf" frameborder="0" width="100%" height="750px"
-                            title="Investigación"></iframe>
-                    </div>
-                </div>
-            </section>
+      <!-- HUD Fases -->
+      <aside class="hud-col">
+        <div class="hud-panel chamfer scanlines hud-box">
+          <div class="hud-scan"></div>
+          <div class="hud-head"><span class="dot dot-primary"></span><h2 class="hud-title">Fases</h2></div>
+          <ol id="hud-phases" aria-label="Fases del proyecto" class="hud-list"></ol>
+          <p id="hud-progress" class="hud-progress"></p>
+        </div>
+      </aside>
+    </div>
 
-            <!-- 02 BRIEF -->
-            <section class="doc-section" id="brief">
-                <div class="section-header">
-                    <span class="section-number">02</span>
-                    <div class="section-title-wrap">
-                        <h2 class="section-title">Brief</h2>
-                    </div>
-                </div>
-                <div class="doc-card">
-                    <div class="doc-card-label">
-                        <span class="doc-icon">📋</span>
-                        <span>Brief Informativo · Portafolio Web Multimedia</span>
-                    </div>
-                    <div class="pdf-wrapper">
-                        <iframe src="pdfs/Brief/Brief_Eleven-Bit-2.pdf" frameborder="0" width="100%" height="750px" title="Brief"></iframe>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 03 IDEA -->
-            <section class="doc-section" id="idea">
-                <div class="section-header">
-                    <span class="section-number">03</span>
-                    <div class="section-title-wrap">
-                        <h2 class="section-title">Idea</h2>
-                    </div>
-                </div>
-
-                <div class="audio-bg">
-                    <img src="img/fond.png" alt="Fondo" class="bg-image">
-                    <div class="audio-content">
-                        <h3 class="audio-title"></h3>
-                        <div class="pdf-wrapper">
-                            <img src="pdfs/Idea/prueba_de_mood_idea.png" alt="">
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 04 CONCEPTO GRÁFICO -->
-            <section class="doc-section" id="concepto_grafico">
-                <div class="section-header">
-                    <span class="section-number">04</span>
-                    <div class="section-title-wrap">
-                        <h2 class="section-title">Concepto Gráfico</h2>
-                    </div>
-                </div>
-
-                <div class="doc-card">
-                    <div class="doc-card-label">
-                        <span class="doc-icon">🎨</span>
-                        <span>Concepto Gráfico · Portafolio Web Multimedia</span>
-                    </div>
-
-                    <!-- VIDEO PROPORCIONADO -->
-                    <div class="video-wrapper">
-                        <video controls>
-                            <source src="video/concepto-grafico.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 05 SCKETCH -->
-            <section class="doc-section" id="scketch">
-                <div class="section-header">
-                    <span class="section-number">06</span>
-                    <div class="section-title-wrap">
-                        <h2 class="section-title">Sketch</h2>
-                    </div>
-                </div>
-                <div class="doc-card">
-                    <div class="doc-card-label">
-                        <span class="doc-icon"></span>
-                        <span>scketch · Portafolio Web Multimedia</span>
-                    </div>
-                    <div class="pdf-wrapper">
-                        <iframe src="pdfs/Sketch/sketch-ELEVEN-BITE.pdf" frameborder="0" width="100%" height="750px" title="Sketch"></iframe>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 06 WIREFRAMES -->
-            <section class="doc-section" id="wireframes">
-                <div class="section-header">
-                    <span class="section-number">07</span>
-                    <div class="section-title-wrap">
-                        <h2 class="section-title">Wireframes</h2>
-                    </div>
-                </div>
-                <div class="doc-card">
-                    <div class="doc-card-label">
-                        <span class="doc-icon">📐</span>
-                        <span>Wireframes · Portafolio Web Multimedia</span>
-                    </div>
-                    <div class="pdf-wrapper">
-                        <iframe src="Wireframess.pdf" frameborder="0" width="100%" height="750px"
-                            title="Wireframes"></iframe>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 07 MOCKUP -->
-            <section class="doc-section" id="mockup">
-                <div class="section-header">
-                    <span class="section-number">08</span>
-                    <div class="section-title-wrap">
-                        <h2 class="section-title">Mockup</h2>
-                    </div>
-                </div>
-                <div class="doc-card">
-                    <div class="doc-card-label">
-                        <span class="doc-icon">🖼️</span>
-                        <span>Mockup · Portafolio Web Multimedia</span>
-                    </div>
-                    <div class="pdf-wrapper">
-                        <img src="pdfs/Mockups/MOCKUPS-PERSONAJE.png" alt="">
-                    </div>
-                </div>
-            </section>
-
-            <!-- 08 PROTOTIPOS -->
-            <section class="doc-section" id="prototipos">
-                <div class="section-header">
-                    <span class="section-number">09</span>
-                    <div class="section-title-wrap">
-                        <h2 class="section-title">Prototipos</h2>
-                    </div>
-                </div>
-                <div class="doc-card">
-                    <div class="doc-card-label">
-                        <span class="doc-icon">⚙️</span>
-                        <span>Prototipos · Portafolio Web Multimedia</span>
-                    </div>
-                    <div class="pdf-wrapper">
-                        <iframe src="prototipos.pdf" frameborder="0" width="100%" height="750px"
-                            title="Prototipos"></iframe>
-                    </div>
-                </div>
-            </section>
-
-            <!-- FOOTER -->
-            <footer class="footer">
-                <div class="footer-brand">Sebastian</div>
-                <p>© 2025 · Hecho desde Bogotá</p>
-                <p class="footer-note">Producción Multimedia · Colombia</p>
-            </footer>
-
-        </main>
-
-        <!-- COLUMNA DERECHA: Fases -->
-        <aside class="col-right">
-            <div class="col-sticky">
-                <div class="col-heading">
-                    <span class="col-label">Fases</span>
-                </div>
-                <nav class="phases-list">
-                    <a href="#" class="phase-item ">
-                        <span class="phase-dot"></span>
-                        Exploración visual
-                    </a>
-                    <a href="#" class="phase-item">
-                        <span class="phase-dot"></span>
-                        Recolección de información
-                    </a>
-                    <a href="#" class="phase-item">
-                        <span class="phase-dot"></span>
-                        Idea
-                    </a>
-                    <a href="#" class="phase-item">
-                        <span class="phase-dot"></span>
-                        Concepto gráfico
-                    </a>
-                    <a href="#" class="phase-item">
-                        <span class="phase-dot"></span>
-                        Producción
-                    </a>
-                    <a href="#" class="phase-item">
-                        <span class="phase-dot"></span>
-                        Post-producción
-                    </a>
-                </nav>
-            </div>
-        </aside>
-
-    </div><!-- /.three-col-layout -->
-
-    <script>
-        // Active state on scroll for index sidebar
-        const sections = document.querySelectorAll('section[id]');
-        const indexItems = document.querySelectorAll('.index-item');
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const id = entry.target.id;
-                    indexItems.forEach(l => l.classList.remove('active'));
-                    const active = document.querySelector(`.index-item[data-section="${id}"]`);
-                    if (active) active.classList.add('active');
-                }
-            });
-        }, { threshold: 0.3 });
-
-        sections.forEach(s => observer.observe(s));
-
-        // Fade-in on scroll
-        const fadeObs = new IntersectionObserver((entries) => {
-            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-        }, { threshold: 0.08 });
-
-        document.querySelectorAll('.doc-section').forEach(el => fadeObs.observe(el));
-    </script>
-
-</body>
-
+    <script src="app.js"></script>
+  </body>
 </html>
